@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airfryer Token</title>
+    <!-- Load required libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/framer-motion@10.12.16/dist/framer-motion.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+<script type="text/babel">
+const { motion } = framerMotion;
+
+function App() {
+    return (
+        <div className="min-h-screen bg-gray-900 overflow-hidden">
+            {/* Animated Background */}
+            <motion.div
+                className="fixed inset-0 bg-gradient-to-r from-yellow-400 via-red-500 to-purple-600"
+                animate={{
+                    opacity: [0.1, 0.2, 0.1],
+                    scale: [1, 1.05, 1]
+                }}
+                transition={{
+                    duration: 8,
+                    repeat: Infinity
+                }}
+            />
+            
+            {/* Main Content */}
+            <div className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center p-8">
+                {/* Airfryer Icon */}
+                <motion.div
+                    className="w-40 h-40 mb-8"
+                    animate={{
+                        rotate: [0, 15, -15, 0],
+                        y: [0, -20, 0]
+                    }}
+                    transition={{
+                        duration: 6,
+                        repeat: Infinity
+                    }}
+                >
+                    <svg viewBox="0 0 100 100" className="text-yellow-400">
+                        <path
+                            d="M20 25 L80 25 L90 45 L10 45 Z"
+                            fill="currentColor"
+                            stroke="white"
+                            strokeWidth="2"
+                        />
+                        <path
+                            d="M30 50 L70 50"
+                            stroke="white"
+                            strokeWidth="2"
+                        />
+                    </svg>
+                </motion.div>
+
+                {/* Title */}
+                <motion.h1
+                    className="text-5xl md:text-6xl font-bold text-white mb-4"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                >
+                    Airfryer
+                </motion.h1>
+
+                {/* Description */}
+                <motion.p
+                    className="text-xl text-gray-300 max-w-2xl mb-8"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 1 }}
+                >
+                    The national digital asset tracking air fryer adoption and culinary innovation
+                </motion.p>
+            </div>
+        </div>
+    );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
