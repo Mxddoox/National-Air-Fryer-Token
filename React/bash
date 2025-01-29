@@ -1,3 +1,0 @@
-npx create-next-app airfryer-website
-cd airfryer-website
-npm install framer-motion @react-three/fiber @react-three/drei
